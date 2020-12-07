@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+char* RemoveSymbolsAndConvertToUpper(char Word[]){
+int len = strlen(Word);
+char* newWord = malloc(sizeof(char)*len);
+int i,j=0;
+for(i=0;i<len;i++){
+  if((Word[i]>=97&&Word[i]<=122)||(Word[i]>=65&&Word[i]<=90)){
+    if(Word[i]>=97)newWord[j]=Word[i]-32;
+    else newWord[j]=Word[i];
+    j++;
+  }
+}
+newWord[j]='\0';
+return newWord;
+}
+
+int main(void) {
+  char *inputString=malloc(sizeof(char)*50);
+  printf("Input:");
+  scanf("%s",inputString);
+  printf("Before function: %s\n",inputString);
+  inputString = RemoveSymbolsAndConvertToUpper(inputString);
+  printf("After function: %s\n",inputString);
+  return 0;
+}
